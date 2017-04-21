@@ -16,6 +16,13 @@ app.get('/', function (req, res) {
   res.send('My Server is working!');
 });
 
+app.get('/healthcheck/', function (req, res) {
+  var processUptime = process.uptime();
+  res.json({
+    uptime: processUptime,
+  });
+});
+
 // GET http://localhost:3000/validate/someone@myseneca.ca
 app.get('/validate/:email', function (req, res) {
   var email = req.params.email;
