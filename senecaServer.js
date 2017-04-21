@@ -44,3 +44,10 @@ app.listen(port, function () {
   console.log('Server started on http://localhost:' + port);
 });
 
+app.get('/healthcheck', function (req, res) {
+  var uptime = process.uptime(); 
+  res.json({
+    uptime: uptime
+  })
+
+});
